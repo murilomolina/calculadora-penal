@@ -1,7 +1,11 @@
 (ns api.calculo
   (:require [compojure.core :refer :all]
             [cheshire.core :as json]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            )
+  (:import [java.time LocalDate]
+           [java.time.format DateTimeFormatter]
+           ))
 
 ;; penaTotal: em anos, meses e dias, EXEMPLO: "2, 3, 15"
 ;; inicioCumprimento: data no formato "YYYY-MM-DD"
@@ -32,6 +36,13 @@
         (- (* total-dias multiplicador) (pena_para_dias tempoDetracao))) 
 )
 
+(defn add-dias-data-final
+  ;; "Recebe um número de dias (int ou float) e uma data inicial (DD-MM-YYYY), e retorna a data final (DD-MM-YYYY)."
+  [dias data-inicial]
+  (let [formatter (DateTimeFormatter/ofPattern "dd-MM-yyyy")
+        data (LocalDate/parse data-inicial formatter)
+        nova-data (.plusDays data dias)]
+    (.format nova-data formatter)))
 
 ;; core logic
 (defn calculate [penaTotal inicioCumprimento tempoDetracao tipoCrime statusApenado]
@@ -52,8 +63,11 @@
 
         ;; Saídas em datas no formato DD-MM-AAAA
         ;; :data_inicio_semi_aberto ;; (dias_p_semi_aberto após o inicioCumprimento) em padrão DD-MM-AAAA
+        :data_inicio_semi_aberto (add-dias-data-final (* pena-condicionada 0.15) inicioCumprimento)
         ;; :data_inicio_aberto ;; (dias_p_aberto após o inicioCumprimento) em padrão DD-  MM-AAAA
+        :data_inicio_aberto (add-dias-data-final (* pena-condicionada 0.30) inicioCumprimento)
         ;; :data_inicio_livramento_condicional ;; (dias_p_livramento_condicional após o inicioCumprimento) em padrão DD-  MM-AAAA
+        :data_inicio_livramento_condicional (add-dias-data-final (* pena-condicionada 0.45) inicioCumprimento)
     }
     )
 )
