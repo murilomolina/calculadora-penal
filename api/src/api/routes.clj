@@ -6,7 +6,7 @@
 
 (defroutes app-routes
   ;; rota raiz
-  (GET "/" [] "api OK")
+  (GET "/" [] "api da calculadora penal OK!")
 
 
   ;; rotas:

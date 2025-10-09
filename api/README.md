@@ -1,3 +1,14 @@
+# Para rodar as variaveis de ambiente:
+
+rode no terminal (com as variaveis de ambiente corretas!):
+
+```bash
+export SUPABASE_URL=https://supabaseurl.co
+export SUPABASE_KEY=asjkdfhljadsfhdashfdashfda
+```
+
+# README Padrão do LEIN
+
 # api
 
 FIXME: description

@@ -50,8 +50,8 @@
         pena-condicionada (aplicar_condicionais total-dias tempoDetracao tipoCrime statusApenado)
     ]
         
-    (println "Total de dias de pena sem condicionais: " total-dias) ;; log
-    (println "Total de dias de pena com condicionais: " pena-condicionada)  ;; log
+    ;; (println "Total de dias de pena sem condicionais: " total-dias) ;; log
+    ;; (println "Total de dias de pena com condicionais: " pena-condicionada)  ;; log
 
     { ;; tudo em dias
         :pena_total_dias pena-condicionada ;; Pena total em dias após aplicação das condições e com a subtração do tempo de detração
