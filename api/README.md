@@ -1,10 +1,22 @@
 # Para rodar as variaveis de ambiente:
 
+## LINUX:
+
 rode no terminal (com as variaveis de ambiente corretas!):
 
 ```bash
 export SUPABASE_URL=https://supabaseurl.co
 export SUPABASE_KEY=asjkdfhljadsfhdashfdashfda
+```
+
+
+## WINDOWS
+
+rode no terminal (com as variaveis de ambiente corretas!):
+
+```bash
+$env:SUPABASE_URL = "https://yourproject.supabase.co"
+$env:SUPABASE_KEY = "your-supabase-service-role-key"
 ```
 
 # README Padrão do LEIN
