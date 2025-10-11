@@ -1,4 +1,4 @@
-;; esse core vai é usado para definir as variaveis de ambiente!
+;; esse core é usado para definir as variaveis de ambiente!
 
 (ns config.core
   (:require [environ.core :refer [env]]))

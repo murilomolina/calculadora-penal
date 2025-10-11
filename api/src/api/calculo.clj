@@ -24,10 +24,11 @@
 
 (def multiplicadores
   {;; exemplos da documentação: 
-   ["comum"                "primario"]      0.16
-   ["comum"                "reincidente"]   0.20
-   ["hediondo"             "primario"]      0.40
-   })
+   ["comum"    "primario"]      0.16
+   ["comum"    "reincidente"]   0.20
+   ["hediondo" "primario"]      0.40
+   ["hediondo" "reincidente"]   0.50 ;; chutei esse multiplicador (não achei na documentação)
+  })
 
 
 (defn aplicar_condicionais [total-dias tempoDetracao tipoCrime statusApenado]
