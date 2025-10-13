@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Allow HTTP for your local IP -->
+        <domain includeSubdomains="true">192.168.15.10</domain>
+        <!-- Optional: also allow localhost for emulator -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+    </domain-config>
+
+    <!-- Optional: allow all (useful for dev/testing only) -->
+    <!--
+    <base-config cleartextTrafficPermitted="true" />
+    -->
+</network-security-config>
