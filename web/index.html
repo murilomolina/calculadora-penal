@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora Penal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="header">
+        <img src="logo.png" alt="Logo" class="logo" />
+        <h1>Calculadora Penal</h1>
+    </header>
+    
+    <main class="container">
+
+        <form id="calcForm" class="form">
+            <section class="field-group">
+                <h2>Pena Total</h2>
+                <div class="input-row">
+                    <input type="number" id="anos" placeholder="Anos" min="0">
+                    <input type="number" id="meses" placeholder="Meses" min="0" max="11">
+                    <input type="number" id="dias" placeholder="Dias" min="0" max="30">
+                </div>
+            </section>
+
+            <section class="field-group">
+                <h2>Início do Cumprimento da Pena</h2>
+                <input type="date" id="inicio" />
+            </section>
+
+            <section class="field-group">
+                <h2>Tempo de Detração</h2>
+                <div class="input-row">
+                    <input type="number" id="det_anos" placeholder="Anos" min="0">
+                    <input type="number" id="det_meses" placeholder="Meses" min="0" max="11">
+                    <input type="number" id="det_dias" placeholder="Dias" min="0" max="30">
+                </div>
+            </section>
+
+            <section class="field-group">
+                <h2>Tipo de Crime</h2>
+                <select id="crime">
+                    <option value="comum">Comum</option>
+                    <option value="hediondo">Hediondo</option>
+                    <option value="equiparado">Equiparado</option>
+                </select>
+            </section>
+
+            <section class="field-group">
+                <h2>Status do Apanado</h2>
+                <select id="status">
+                    <option value="primario">Primário</option>
+                    <option value="reincidente">Reincidente</option>
+                </select>
+            </section>
+
+            <button type="submit" class="btn">CALCULAR</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
