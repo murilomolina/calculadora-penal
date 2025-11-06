@@ -3,6 +3,10 @@
     <domain-config cleartextTrafficPermitted="true">
         <!-- Allow HTTP for your local IP -->
         <domain includeSubdomains="true">192.168.15.10</domain>
+        <!-- IPs do IOTYRE -->
+        <domain includeSubdomains="true">10.147.24.45</domain>
+        <domain includeSubdomains="true">10.147.24.54</domain>
+
         <!-- Optional: also allow localhost for emulator -->
         <domain includeSubdomains="true">10.0.2.2</domain>
     </domain-config>

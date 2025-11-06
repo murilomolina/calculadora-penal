@@ -26,6 +26,9 @@ import okhttp3.RequestBody.Companion.toRequestBody
 //debug
 import android.util.Log
 
+val ipAPI = "10.147.24.45"
+
+
 data class UserInput(
     val penaTotalAnos: String,
     val penaTotalMeses: String,
@@ -422,7 +425,7 @@ class MainActivity : AppCompatActivity() {
 
 
         val request = Request.Builder()
-            .url("http://192.168.15.10:8080/calculo")
+            .url("http://${ipAPI}:8080/calculo")
             .post(requestBody)
             .build()
 
@@ -460,7 +463,7 @@ class MainActivity : AppCompatActivity() {
         val requestBody = json.toRequestBody(mediaType)
 
         val request = Request.Builder()
-            .url("http://192.168.15.10:8080/clientes") // endpoint para captar contatos
+            .url("http://${ipAPI}:8080/clientes") // endpoint para captar contatos
             .post(requestBody)
             .build()
 
