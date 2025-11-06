@@ -6,6 +6,7 @@
                  [clj-http "3.12.3"]           ;; para fazer requisições HTTP
                  [cheshire "5.11.0"]           ;; para parsear e gerar JSON
                  [environ "1.2.0"]             ;; para gerenciar variáveis de ambiente
+                 [ring-cors "0.1.13"]          ;; also cors
                  ]
   :main ^:skip-aot api.core
   :target-path "target/%s"

@@ -1,98 +1,272 @@
 :root {
-  --bg: #00144a;
-  --text: #fff;
-  --accent: #f4c20d;
+  --bg: #00144a;          /* azul escuro principal */
+  --bg-light: #0a1f6b;    /* azul mais claro */
+  --text: #ffffff;
+  --accent: #f4c20d;      /* dourado */
+  --radius: 10px;
+  --transition: 0.3s ease;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  justify-content: center;
-  justify-items: center;
-  /* align-items: center; */
-  /* overflow: hidden; */
   font-family: "Segoe UI", Roboto, sans-serif;
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-  max-width: auto;
-  margin: auto auto;
-  padding: auto auto;
-}
-
+/* HEADER */
 .header {
   display: flex;
-  justify-content: center; /* center content horizontally */
-  align-items: center; /* center content vertically */
-  width: 100%; /* full width of the page */
-  padding: 2rem 0; /* top & bottom padding only */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* stronger shadow for depth */
-  /* position: sticky; */
-  /* top: 0;
-  z-index: 1000; */
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-light);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .header .logo {
-  width: 100px;
+  width: 70px;
   height: auto;
 }
 
 .header h1 {
   color: var(--accent);
-  font-size: 2.0rem; /* bigger and more prominent */
-  margin: 0 0 0 1rem; /* spacing from logo */
+  font-size: 2rem;
+  margin: 0;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background: var(--bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 0;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+/* CONTAINER */
+.container {
+  flex: 1;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #0a1f6b;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* PÁGINAS */
+.page {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CAMPOS */
 .field-group {
   margin-bottom: 1.5rem;
 }
 
 .field-group h2 {
   color: var(--accent);
-  font-size: 0.95rem;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
 }
 
 .input-row {
-  width: 100%;
   display: flex;
   gap: 0.6rem;
 }
 
-input, select {
+input,
+select {
   flex: 1;
-  padding: 0.6rem;
-  border-radius: 6px;
+  padding: 0.7rem;
+  border-radius: var(--radius);
   border: none;
+  background: #ffffff;
+  color: #000;
   font-size: 1rem;
 }
 
-input[type="date"] {
-  width: 100%;
-}
-
+/* BOTÃO PRINCIPAL */
 .btn {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  padding: 0.8rem;
   background: var(--accent);
   color: #000;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: var(--radius);
+  padding: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 1.1rem;
-  margin-top: 1rem;
+  transition: var(--transition);
 }
 
 .btn:hover {
   background: #ffdb4d;
+}
+
+/* CLIENTES */
+.clientes-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.cliente-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  transition: var(--transition);
+}
+
+.cliente-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--bg-light);
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* GRID DO CÁLCULO E EMAIL */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CAIXA DE EMAIL */
+.calc-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.email-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  height: fit-content;
+}
+
+.email-box h3 {
+  color: var(--accent);
+  margin: 0;
+}
+
+.email-box p {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 0.8rem;
+}
+
+.email-box input {
+  width: auto;
+  padding: 0.7rem;
+  border-radius: var(--radius);
+  border: none;
+  background: #fff;
+  color: #000;
+}
+
+.email-box .btn.small {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 1rem;
+}
+
+/* RESULTADO DO CÁLCULO */
+.resultado-box {
+  background: rgba(255, 255, 255, 0.08);
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.resultado-box h3 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.4rem;
+}
+
+.resultado-item {
+  margin: 0.4rem 0;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.resultado-item .chave {
+  font-weight: bold;
+  color: var(--accent);
+  text-transform: capitalize;
+}
+
+.resultado-item .valor {
+  color: #fff;
+  text-align: right;
+  word-break: break-word;
 }

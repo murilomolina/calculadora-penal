@@ -1,67 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora Penal</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora Penal</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <header class="header">
-        <img src="logo.png" alt="Logo" class="logo" />
-        <h1>Calculadora Penal</h1>
-    </header>
-    
-    <main class="container">
+  <header class="header">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>Projeto Calculadora Penal</h1>
+  </header>
 
-        <form id="calcForm" class="form">
-            <section class="field-group">
-                <h2>Pena Total</h2>
-                <div class="input-row">
-                    <input type="number" id="anos" placeholder="Anos" min="0">
-                    <input type="number" id="meses" placeholder="Meses" min="0" max="11">
-                    <input type="number" id="dias" placeholder="Dias" min="0" max="30">
-                </div>
-            </section>
+  <nav class="navbar">
+    <!-- <button class="nav-btn active" data-page="home">Home</button> -->
+    <button class="nav-btn" data-page="calculo">Cálculo</button>
+    <button class="nav-btn" data-page="clientes">Clientes</button>
+  </nav>
 
-            <section class="field-group">
-                <h2>Início do Cumprimento da Pena</h2>
-                <input type="date" id="inicio" />
-            </section>
+  <main class="container">
+    <!-- Página HOME
+    <section id="home" class="page active">
+      <h2>Bem-vindo!</h2>
+      <p>Escolha uma das opções acima para começar.</p>
+    </section> -->
 
-            <section class="field-group">
-                <h2>Tempo de Detração</h2>
-                <div class="input-row">
-                    <input type="number" id="det_anos" placeholder="Anos" min="0">
-                    <input type="number" id="det_meses" placeholder="Meses" min="0" max="11">
-                    <input type="number" id="det_dias" placeholder="Dias" min="0" max="30">
-                </div>
-            </section>
+    <!-- Página CÁLCULO -->
+    <section id="calculo" class="page active">
+  <div class="calc-grid">
+    <!-- FORMULÁRIO -->
+    <form id="calcForm" class="form">
+      <section class="field-group">
+        <h2>Pena Total</h2>
+        <div class="input-row">
+          <input type="number" id="anos" placeholder="Anos" min="0">
+          <input type="number" id="meses" placeholder="Meses" min="0" max="11">
+          <input type="number" id="dias" placeholder="Dias" min="0" max="30">
+        </div>
+      </section>
 
-            <section class="field-group">
-                <h2>Tipo de Crime</h2>
-                <select id="crime">
-                    <option value="comum">Comum</option>
-                    <option value="hediondo">Hediondo</option>
-                    <option value="equiparado">Equiparado</option>
-                </select>
-            </section>
+      <section class="field-group">
+        <h2>Início do Cumprimento da Pena</h2>
+        <input type="date" id="inicio" />
+      </section>
 
-            <section class="field-group">
-                <h2>Status do Apanado</h2>
-                <select id="status">
-                    <option value="primario">Primário</option>
-                    <option value="reincidente">Reincidente</option>
-                </select>
-            </section>
+      <section class="field-group">
+        <h2>Tempo de Detração</h2>
+        <div class="input-row">
+          <input type="number" id="det_anos" placeholder="Anos" min="0">
+          <input type="number" id="det_meses" placeholder="Meses" min="0" max="11">
+          <input type="number" id="det_dias" placeholder="Dias" min="0" max="30">
+        </div>
+      </section>
 
-            <button type="submit" class="btn">CALCULAR</button>
-        </form>
-    </main>
+      <section class="field-group">
+        <h2>Tipo de Crime</h2>
+        <select id="crime">
+          <option value="comum">Comum</option>
+          <option value="hediondo">Hediondo</option>
+          <!-- <option value="equiparado">Equiparado</option> -->
+        </select>
+      </section>
 
-    <script src="script.js"></script>
+      <section class="field-group">
+        <h2>Status do Apenado</h2>
+        <select id="status">
+          <option value="primario">Primário</option>
+          <option value="reincidente">Reincidente</option>
+        </select>
+      </section>
+
+      <button type="submit" class="btn">CALCULAR</button>
+
+      
+      <!-- Caixa para o resultado -->
+      <div id="resultadoBox" class="resultado-box" style="display: none;">
+        <h3>Resultado do Cálculo</h3>
+        <div id="resultadoConteudo"></div>
+      </div>
+    </form>
+
+    <!-- CAIXA CLIENTE -->
+    <aside class="email-box">
+      <h3>Dados para Contato</h3>
+      <p>Informe os seus dados para que a gente possa entrar em contato com você!</p>
+
+      <input type="email" id="emailCliente" placeholder="E-mail" required />
+      <input type="text" id="numeroCliente" placeholder="Número" required />
+      <input type="text" id="processoCliente" placeholder="Número do Processo" required />
+
+      <button id="enviarCliente" class="btn small">ENVIAR</button>
+    </aside>
+  </div>
+</section>
+
+    <!-- Página CLIENTES -->
+    <section id="clientes" class="page">
+      <h2>Lista de Clientes</h2>
+      <button id="loadClientes" class="btn">Carregar Clientes</button>
+      <div id="clientesList" class="clientes-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 Calculadora Penal</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
